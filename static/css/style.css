@@ -1,0 +1,50 @@
+/* Global Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #fdfcf5; /* Light cream background */
+  color: #333; /* Dark text color */
+  margin: 0;
+  padding: 0;
+}
+
+/* Typography */
+h1 {
+  color: #ff6600; /* Orange color for the title */
+  font-size: 2.5rem; /* Slightly smaller for resizing */
+  margin: 1rem 0;
+}
+
+.lead {
+  font-size: 1.125rem; /* Resized for better scaling */
+  color: #555;
+  margin: 0.5rem 0;
+}
+
+/* Buttons */
+.btn-warning {
+  background-color: #ff6600; /* Custom orange button */
+  border: none;
+  padding: 8px 16px; /* Resized padding */
+  font-size: 1rem; /* Resized font size */
+  color: #fff;
+  border-radius: 4px; /* Add subtle rounding */
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-warning:hover {
+  background-color: #e65a00; /* Darker orange for hover */
+}
+
+/* Links */
+a.text-decoration-none {
+  color: #ff6600;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s, text-decoration 0.3s;
+}
+
+a.text-decoration-none:hover {
+  color: #e65a00; /* Match hover color with button */
+  text-decoration: underline;
+}

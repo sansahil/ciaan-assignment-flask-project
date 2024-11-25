@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Startup School</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <!-- Optional Custom CSS -->
+    <link rel="stylesheet" href="/static/css/style.css">
+    <style>
+        /* Card Styling */
+        .card {
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-img-top {
+            width: 100%;
+            height: 200px; /* Resize image to maintain consistent size */
+            object-fit: cover; /* Ensures the image covers the area without distorting */
+        }
+
+        .card-body {
+            padding: 1.5rem; /* Custom padding for card content */
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+        }
+
+        .card-text {
+            font-size: 1rem;
+            color: #6c757d;
+        }
+
+        /* Section title customization */
+        .section-title {
+            font-weight: bold;
+            color: #ffb600;
+        }
+
+        /* Animation for cards */
+        .fade-in {
+            animation: fadeIn 1.5s ease-in-out forwards;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Styling for the main container */
+        .container {
+            margin-top: 20px;
+        }
+
+        /* Styling for the custom image */
+        .custom-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        /* General box styling for alumni stories */
+        .quote-box {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #ffb600;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <div class="container py-5">
+        <div class="text-center">
+            <h1 class="mb-3">Startup School</h1>
+            <p class="lead">
+                Learn how to start a company, with help from the world's top startup accelerator - 
+                <strong>Y Combinator</strong>.
+            </p>
+            <p>Startup School is a free online course on how to start a startup.</p>
+        </div>
+
+        <!-- Call-to-Action Section -->
+        <div class="text-center my-4">
+            <a href="/signup" class="btn btn-warning btn-lg me-3">Sign up</a>
+            <a href="/signin" class="text-decoration-none">Sign in</a>
+        </div>
+
+        <!-- Additional Info Section -->
+        <div class="text-center mt-4">
+            <p>
+                Get advice based on 15 years of YC's knowledge, stay accountable for weekly progress, 
+                and find your co-founder.
+            </p>
+        </div>
+    </div>
+
+    <!-- YC Curriculum Section -->
+    <div class="container py-5">
+        <!-- Section Title -->
+        <div class="text-center mb-5">
+            <h2 class="section-title">The YC Curriculum</h2>
+            <p class="text-muted">
+                Learn how to build a top startup - from the same people who helped Airbnb, Doordash, Stripe, Reddit, and Coinbase get started.
+            </p>
+        </div>
+
+        <!-- Cards Section with Animation -->
+        <div class="row g-4">
+            <!-- First Card: Michael Seibel -->
+            <div class="col-md-4 fade-in">
+                <div class="card shadow-sm">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKYo-QgkDiZlTY9C5QMpDFMSgxW0dxbzY8iQ&s/300x200" class="card-img-top custom-image" alt="Michael Seibel">
+                    <div class="card-body">
+                        <h5 class="card-title">Michael Seibel</h5>
+                        <p class="card-text">How to Plan your MVP - YC Partner & Co-Founder of Twitch</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Second Card: Carolynn Levy -->
+            <div class="col-md-4 fade-in">
+                <div class="card shadow-sm">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTM2yptFjrHKDx0yH_7eZhQXVkFuhwg1KdTMA&s/300x300" class="card-img-top custom-image" alt="Carolynn Levy">
+                    <div class="card-body">
+                        <h5 class="card-title">Carolynn Levy</h5>
+                        <p class="card-text">Modern Startup Funding - Inventor of the SAFE</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Third Card: Kat Manalac -->
+            <div class="col-md-4 fade-in">
+                <div class="card shadow-sm">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnNSDE8ddo_ptV9Ov3FK6TinKk1amydeLDJw&s/300x200" class="card-img-top custom-image" alt="Kat Manalac">
+                    <div class="card-body">
+                        <h5 class="card-title">Kat Manalac</h5>
+                        <p class="card-text">How to Launch your Company in the Press - YC Head of Outreach</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional Cards here -->
+
+        </div>
+    </div>
+
+    <!-- Alumni Stories Section -->
+    <div class="container py-5">
+        <div class="text-center">
+            <h2 class="fw-bold">Alumni Stories</h2>
+            <p class="text-muted">
+                Hear from past participants about how Startup School helped them.
+            </p>
+        </div>
+
+        <div class="row text-center">
+            <!-- First Alumni Story -->
+            <div class="col-md-6 mb-4">
+                <div class="quote-box">
+                    <p>
+                        "I trust Startup School to give me high-quality content without having to sift through a lot. I trust that someone at Y Combinator has already dedicated attention to curating this content."
+                        <br><small>- Tony Xiao, YC 2012</small>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Second Alumni Story -->
+            <div class="col-md-6 mb-4">
+                <div class="quote-box">
+                    <p>
+                        "I wasn't originally planning to apply to Y Combinator, but I got a nudge from Startup School and am so grateful that I did because it transformed the trajectory of my company."
+                        <br><small>- Jaclyn Chen, Benepass, YC 2020</small>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Third Alumni Story -->
+            <div class="col-md-6 mb-4">
+                <div class="quote-box">
+                    <p>
+                        "We were both skeptical of co-founder dating, but when Startup School launched their matching platform we decided to give it a try. After we were matched, not only did we hit it off immediately, but Startup School also guided us through the process of figuring out whether we would be a good team long-term."
+                        <br><small>- Curtis and Matthew, Whalesync, YC 2021</small>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and Popper.js (for interactive elements) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
