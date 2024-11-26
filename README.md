@@ -19,5 +19,6 @@ python3 app.py runserver
 
 ### Here is the demo of the progress
 
-![signup_demo-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/86dea753-45a8-4451-b1ca-85ae47ef69ff)
+![signup_demo](https://github.com/user-attachments/assets/9e5e1915-38e0-4553-89ac-49d8ac59a2aa)
+
 
