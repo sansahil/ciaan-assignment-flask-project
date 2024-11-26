@@ -16,3 +16,7 @@ python3 app.py runserver
 
 - Look for the URL in the browser - `http://127.0.0.1:5000/signup`
 - Run the operations in the page, it should work and lead to the dashboard page
+
+### Here is the demo of the progress
+
+[Sign Up Demo](./signup_demo.mov)
