@@ -19,4 +19,4 @@ python3 app.py runserver
 
 ### Here is the demo of the progress
 
-[Sign Up Demo](./signup_demo.mov)
+[![Watch the video](https://raw.githubusercontent.com/sansahil/ciaan-assignment-flask-project/main/signup_demo.mov)](https://raw.githubusercontent.com/sansahil/ciaan-assignment-flask-project/main/signup_demo.mov)
