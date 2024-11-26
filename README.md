@@ -19,4 +19,5 @@ python3 app.py runserver
 
 ### Here is the demo of the progress
 
-[![Watch the video](https://raw.githubusercontent.com/sansahil/ciaan-assignment-flask-project/main/signup_demo.mov)](https://raw.githubusercontent.com/sansahil/ciaan-assignment-flask-project/main/signup_demo.mov)
+![signup_demo-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/86dea753-45a8-4451-b1ca-85ae47ef69ff)
+
