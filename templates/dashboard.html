@@ -1,17 +1,113 @@
-<!-- templates/dashboard.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <title>Co-Founder Matching Dashboard</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        .sidebar {
+            width: 200px;
+            background-color: #f5f5f5;
+            padding: 20px;
+            height: 100vh;
+        }
+        .sidebar-item {
+            margin-bottom: 15px;
+            color: #333;
+            text-decoration: none;
+            display: block;
+        }
+        .main-content {
+            flex-grow: 1;
+            padding: 20px;
+        }
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            padding: 20px;
+        }
+        .matches-section {
+            margin-top: 20px;
+        }
+        .profile-pics {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .profile-pic {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .button {
+            background-color: #ff6600;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .button-secondary {
+            background-color: #6c757d;
+        }
+    </style>
 </head>
 <body>
-    <h1>Welcome, {{ username }}!</h1>
-    
-    <p>Click below to update your profile:</p>
-    <a href="{{ url_for('update_profile') }}">Update Profile</a><br><br>
-
-    <a href="{{ url_for('logout') }}">Logout</a>
+    <div class="sidebar">
+        <img src="{{ url_for('static', filename='yc-logo.png') }}" alt="YC Logo" style="width: 30px; margin-bottom: 20px;">
+        <a href="#" class="sidebar-item">Dashboard</a>
+        <a href="#" class="sidebar-item">Discover Profiles</a>
+        <a href="#" class="sidebar-item">Revisit Profiles</a>
+        <a href="#" class="sidebar-item">Inbox</a>
+        <a href="#" class="sidebar-item">Read the YC Guide</a>
+        <a href="#" class="sidebar-item">Curriculum</a>
+        <a href="#" class="sidebar-item">My Account</a>
+    </div>
+    <div class="main-content">
+        <h1>Co-Founder Matching Dashboard</h1>
+        <div class="dashboard-grid">
+            <div class="card">
+                <h2>{{ founder_count }} founders in your queue meet your requirements!</h2>
+                <a href="#" class="button">View Profiles</a>
+            </div>
+            <div class="card">
+                <h2>You have {{ saved_profiles }} saved profiles awaiting an invite!</h2>
+                <a href="#" class="button button-secondary">View Saved Profiles</a>
+            </div>
+            <div class="card">
+                <h2>How it Works</h2>
+                <p>When you go to the candidates page, you will be shown one profile at a time. If you choose to send a message request to someone, they will receive an email with your profile. If they accept your request, we'll match the two of you! To ensure that founders have a good experience on this platform, you are limited to sending 20 invites per week.</p>
+            </div>
+        </div>
+        <div class="matches-section">
+            <h2>You have {{ unmatched_count }} matches that you haven't messaged yet.</h2>
+            <p>Keep the search moving fast! Most successful teams set up an initial meeting within a week of matching.</p>
+            <div class="profile-pics">
+                {% for pic in profile_pics %}
+                    <img src="{{ url_for('static', filename=pic) }}" alt="Profile" class="profile-pic">
+                {% endfor %}
+            </div>
+        </div>
+        <div class="card">
+            <h2>Your Matches</h2>
+            <p>You have {{ active_matches }} active matches! Go to your inbox to review them and set up meetings.</p>
+            <a href="#" class="button">View your matches</a>
+        </div>
+    </div>
 </body>
 </html>

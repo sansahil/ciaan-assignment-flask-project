@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign In</title>
+    <title>Signup</title>
     <!-- Link to external CSS file -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <style>
@@ -26,6 +26,11 @@
         .form-container h1 {
             margin-bottom: 20px;
             color: #ff6600; /* Orange color for the title */
+        }
+        .form-container p {
+            color: #333; /* Dark black text for the description */
+            font-size: 1.2rem;
+            margin-bottom: 20px;
         }
         .form-container input {
             width: calc(100% - 20px);
@@ -58,66 +63,54 @@
             color: #e65a00;
             text-decoration: underline;
         }
-        .form-container .signup-link {
+        .form-container .login-link {
             margin-top: 15px;
             display: block;
             font-size: 0.9rem;
         }
-        .flash-messages {
-            margin-bottom: 15px;
-            list-style-type: none;
-            padding: 0;
-            text-align: left;
+        .logo {
+            text-align: center;
+            margin-bottom: 30px;
         }
-        .flash-messages li {
-            padding: 8px;
-            margin-bottom: 5px;
-            border-radius: 5px;
-        }
-        .flash-messages .success {
-            background-color: #d4edda;
-            color: #155724;
-        }
-        .flash-messages .danger {
-            background-color: #f8d7da;
-            color: #721c24;
-        }
-        .flash-messages .info {
-            background-color: #cce5ff;
-            color: #004085;
-        }
-        .flash-messages .warning {
-            background-color: #fff3cd;
-            color: #856404;
+        .logo h2 {
+            color: #ff6600; /* Color for logo */
+            font-size: 3rem;
         }
     </style>
 </head>
 <body>
-    <!-- Sign In Form -->
-    <div class="form-container">
-        <h1>Sign In</h1>
+    <!-- Logo Section -->
+    <div class="logo">
+        <h2>Y</h2> <!-- Replace "Y" with an image if needed -->
+    </div>
 
+    <!-- Signup Form -->
+    <div class="form-container">
+        <h1>Sign Up</h1>
+        <p>Sign up to access Startup School & Co-Founder Matching</p>
+        
         <!-- Flash messages -->
         {% with messages = get_flashed_messages(with_categories=true) %}
             {% if messages %}
-                <ul class="flash-messages">
+                <ul>
                     {% for category, message in messages %}
-                        <li class="{{ category }}">{{ message }}</li>
+                        <li>{{ message }}</li>
                     {% endfor %}
                 </ul>
             {% endif %}
         {% endwith %}
 
-        <!-- Form Section -->
-        <form method="POST">
-            <input type="email" id="email" name="email" placeholder="Enter Email" required>
-            <input type="password" id="password" name="password" placeholder="Enter Password" required>
-            <button type="submit">Sign In</button>
+        <!-- Signup Form -->
+        <form action="/signup" method="post">
+            <input type="text" name="first_name" placeholder="Enter First Name" required>
+            <input type="text" name="last_name" placeholder="Enter Last Name" required>
+            <input type="email" name="email" placeholder="Enter Email" required>
+            <input type="text" name="username" placeholder="Enter Username" required>
+            <input type="password" name="password" placeholder="Enter Password" required>
+            <input type="url" name="linkedin" placeholder="LinkedIn Profile URL" required>
+            <button type="submit">Sign Up</button>
         </form>
-
-        <!-- Links -->
-        <a href="{{ url_for('reset_password') }}">Forgot your password?</a><br>
-        <a class="signup-link" href="{{ url_for('signup') }}">Don't have an account? Sign Up</a>
+        <a class="login-link" href="/signin">Already have an account? Log in</a>
     </div>
 </body>
 </html>
