@@ -10,7 +10,7 @@ docker run --name postgresql-container -p 5432:5432 -e POSTGRES_PASSWORD=postgre
 
 ```sh
 git clone https://github.com/sansahil/startup-school.git
-cd startup-school
+cd sample-flask-project
 python3 app.py runserver
 ```
 
@@ -20,5 +20,3 @@ python3 app.py runserver
 ### Here is the demo of the progress
 
 ![signup_demo](https://github.com/user-attachments/assets/9e5e1915-38e0-4553-89ac-49d8ac59a2aa)
-
-
