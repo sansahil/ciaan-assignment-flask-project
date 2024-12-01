@@ -1,17 +1,136 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Startup School - Y Combinator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header class="header">
+        <div class="logo-container">
+            <div class="yc-logo">Y</div>
+            <h1>Startup School</h1>
+        </div>
+    </header>
 
-{% block content %}
-<h1 class="text-3xl font-semibold mb-6">Co-Founder Profiles</h1>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-    {% for profile in profiles %}
-    <div class="bg-white rounded-lg shadow-md p-6">
-        <h2 class="text-xl font-semibold mb-2">{{ profile.user.first_name }} {{ profile.user.last_name }}</h2>
-        <p class="text-gray-600 mb-4">{{ profile.location }} | {{ profile.age }} years old</p>
-        <p class="mb-4">{{ profile.bio[:100] }}...</p>
-        <p class="text-sm text-gray-500">Skills: {{ profile.skills }}</p>
-        <a href="{{ url_for('profile', profile_id=profile.id) }}" class="mt-4 inline-block bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700">View Profile</a>
-    </div>
-    {% endfor %}
-</div>
-{% endblock %}
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h2>Learn how to start a company,<br>with help from the world's top<br>startup accelerator -<br>Y Combinator.</h2>
+                <p><span class="highlight">Startup School</span> is a free online course on how to start a startup.</p>
+                <div class="cta-buttons">
+                    <a href="{{ url_for('signup') }}" class="button primary">Sign up</a>
+                    <a href="{{ url_for('signin') }}" class="button secondary">Sign in</a>
+                </div>
+            </div>
+            <div class="world-map"></div>
+        </section>
 
+        <section class="info-section dark">
+            <div class="container">
+                <h3>How Startup School works</h3>
+                <ul>
+                    <li>Get the essential advice for ambitious startup founders, taught by Y Combinator partners and industry leaders.</li>
+                    <li>Go at your own pace. It will take approximately 7 weeks if you spend 1-2 hours/week.</li>
+                </ul>
+
+                <h3>Who is Startup School for?</h3>
+                <p>It's for anyone at the early stages of building a startup, turning a side project into a company, or anyone curious to learn about becoming a founder.</p>
+            </div>
+        </section>
+
+        <section class="curriculum">
+            <div class="container">
+                <h2>The YC Curriculum</h2>
+                <p class="subtitle">Learn how to build a top startup - from the same people who helped Airbnb, Doordash, Stripe, Reddit, and Coinbase get started.</p>
+                
+                <div class="course-grid">
+                    {% for course in courses %}
+                    <div class="course-card">
+                        <img src="{{ course.image }}" alt="{{ course.instructor }}">
+                        <div class="course-info">
+                            <h4>{{ course.title }}</h4>
+                            <p>{{ course.instructor }}</p>
+                            <p class="instructor-title">{{ course.role }}</p>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials">
+            <div class="container">
+                <h2>Alumni Stories</h2>
+                <div class="testimonial-carousel">
+                    <button class="nav-button prev">←</button>
+                    <div class="testimonial">
+                        <blockquote>
+                            "I trust Startup School to give me high quality content without having to sift through a lot. If you Google a question about startups, you'll come up with a bunch of stuff that is a terrible use of time. I trust that someone at Y Combinator has already dedicated attention to curating this content."
+                        </blockquote>
+                        <div class="author">
+                            <img src="{{ url_for('static', filename='images/tony.jpg') }}" alt="Tony Xiao">
+                            <p>- Tony Xiao (Collections, YC 2012)</p>
+                        </div>
+                    </div>
+                    <button class="nav-button next">→</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="cofounder-matching dark">
+            <div class="container">
+                <h2>Also part of Startup School:</h2>
+                <ul>
+                    <li>YC Co-Founder Matching: the world's largest co-founder matching platform, with over 100,000 matches made</li>
+                    <li>A weekly update tool to track your growth and progress</li>
+                </ul>
+
+                <h3>How co-founder matching works:</h3>
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-icon">👤</div>
+                        <h4>Create your profile</h4>
+                        <p>Let other founders know your preferences for interests, skills, location, and more</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-icon">🔍</div>
+                        <h4>See potential co-founders</h4>
+                        <p>We'll show you candidates best suited for you based on your requirements and preferences</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-icon">🤝</div>
+                        <h4>Connect with your matches</h4>
+                        <p>Send invitations to founders that seem like a good fit, and explore the possibility of working together</p>
+                    </div>
+                </div>
+                <a href="#" class="link-orange">Learn more about co-founder matching</a>
+            </div>
+        </section>
+
+        <section class="final-cta">
+            <h2>Learn from the best startup founders</h2>
+            <a href="{{ url_for('signup') }}" class="button primary">Sign up</a>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-left">
+                <div class="yc-logo">Y</div>
+                <span>Combinator</span>
+            </div>
+            <nav class="footer-nav">
+                <a href="#">About</a>
+                <a href="#">Privacy</a>
+                <a href="#">FAQ</a>
+                <a href="#">Help</a>
+            </nav>
+            <div class="footer-right">
+                <a href="{{ url_for('signup') }}" class="button outline">Sign up now</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

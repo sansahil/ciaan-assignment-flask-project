@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Co-Founder Matching</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Sidebar -->
+    <nav class="sidebar">
+      <div class="logo">Y</div>
+      <ul>
+        <li>Dashboard</li>
+        <li>Discover Profiles</li>
+        <li>Revisit Profiles</li>
+        <li>Inbox</li>
+        <li>Read the YC Guide</li>
+        <li>Curriculum</li>
+        <li>My Account</li>
+      </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <header>
+        <h1>My Profile</h1>
+        <p>Welcome to your co-founder matching profile! Fill in the details below.</p>
+      </header>
+      
+      <form action="/save-profile" method="POST" class="profile-form">
+        <div class="section">
+          <h2>Basics</h2>
+          <label for="first_name">First Name</label>
+          <input type="text" id="first_name" name="first_name" placeholder="First Name" required>
+
+          <label for="last_name">Last Name</label>
+          <input type="text" id="last_name" name="last_name" placeholder="Last Name" required>
+
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="Email" required>
+
+          <label for="linkedin_url">LinkedIn URL</label>
+          <input type="url" id="linkedin_url" name="linkedin_url" placeholder="https://linkedin.com/in/username" required>
+        </div>
+
+        <div class="section">
+          <h2>More About You</h2>
+          <label for="twitter_url">Twitter URL</label>
+          <input type="url" id="twitter_url" name="twitter_url" placeholder="https://twitter.com/username">
+
+          <label for="instagram_url">Instagram URL</label>
+          <input type="url" id="instagram_url" name="instagram_url" placeholder="https://instagram.com/username">
+        </div>
+
+        <button type="submit">Save</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

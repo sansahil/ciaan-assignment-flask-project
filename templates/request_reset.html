@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reset Password</title>
+    <title>Request Password Reset</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
@@ -22,16 +22,16 @@
 
         <form method="POST">
             <div class="form-group">
-                <input type="password" id="new_password" name="password" required>
-                <label for="new_password">New Password</label>
+                <input type="email" id="email" name="email" required>
+                <label for="email">Email Address</label>
             </div>
 
-            <button type="submit">Reset Password</button>
+            <button type="submit">Request Password Reset</button>
         </form>
 
         <p class="signin-link">
             Remembered your password? <a href="/signin">Sign in</a>.
         </p>
-    </div> 
+    </div>
 </body>
 </html>

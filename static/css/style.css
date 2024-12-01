@@ -1,26 +1,23 @@
-* {
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-}
-
-body {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background-color: #fafafa;
 }
 
-.signup-container {
-  background: white;
-  padding: 40px;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-width: 480px;
-  text-align: center;
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  padding: 20px 0;
 }
 
 .logo {
@@ -31,112 +28,147 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 24px;
   font-weight: bold;
-  font-size: 20px;
-}
-
-h1 {
   font-size: 24px;
-  color: #000;
-  margin-bottom: 32px;
-  line-height: 1.3;
-  font-weight: 600;
+  margin-right: 10px;
 }
 
-.name-group {
-  display: flex;
-  gap: 16px;
-  margin-bottom: 16px;
+h1, h2, h3, h4 {
+  margin-bottom: 20px;
 }
 
-.form-group {
-  position: relative;
-  margin-bottom: 24px;
-  text-align: left;
-  flex: 1;
+.hero {
+  text-align: center;
+  padding: 60px 0;
 }
 
-.form-group input {
-  width: 100%;
-  padding: 8px 0;
-  border: none;
-  border-bottom: 1px solid #ddd;
-  outline: none;
-  font-size: 16px;
-  transition: border-color 0.3s;
-}
-
-.form-group label {
-  position: absolute;
-  left: 0;
-  top: 8px;
-  color: #666;
-  font-size: 16px;
-  transition: all 0.3s;
-  pointer-events: none;
-}
-
-.form-group input:focus,
-.form-group input:valid {
-  border-bottom-color: #F4511E;
-}
-
-.form-group input:focus + label,
-.form-group input:valid + label {
-  top: -20px;
-  font-size: 12px;
-  color: #F4511E;
-}
-
-button {
-  width: 100%;
-  padding: 12px;
+.button {
+  display: inline-block;
+  padding: 10px 20px;
   background-color: #F4511E;
   color: white;
-  border: none;
+  text-decoration: none;
   border-radius: 4px;
-  font-size: 16px;
-  cursor: pointer;
-  margin-top: 16px;
   transition: background-color 0.3s;
 }
 
-button:hover {
+.button:hover {
   background-color: #d83c0d;
 }
 
-.login-link {
-  margin-top: 24px;
-  color: #666;
-  font-size: 14px;
-}
-
-.login-link a {
+.button.secondary {
+  background-color: transparent;
   color: #F4511E;
-  text-decoration: none;
+  border: 1px solid #F4511E;
 }
 
-.login-link a:hover {
-  text-decoration: underline;
+.info-box {
+  background-color: #333;
+  color: white;
+  padding: 40px;
+  margin: 40px 0;
 }
 
-.flash-message {
-  padding: 12px;
+.curriculum {
+  text-align: center;
+  padding: 60px 0;
+}
+
+.course-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.course-card {
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   border-radius: 4px;
-  margin-bottom: 20px;
-  font-size: 14px;
+  overflow: hidden;
 }
 
-.success {
-  background-color: #d4edda;
-  color: #155724;
-  border: 1px solid #c3e6cb;
+.course-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
 }
 
-.error {
-  background-color: #f8d7da;
-  color: #721c24;
-  border: 1px solid #f5c6cb;
+.testimonial {
+  background-color: #f5f5f5;
+  padding: 60px 0;
+  text-align: center;
 }
 
+.testimonial blockquote {
+  font-size: 18px;
+  font-style: italic;
+  max-width: 800px;
+  margin: 0 auto 20px;
+}
+
+.additional-features, .cofounder-matching {
+  padding: 60px 0;
+}
+
+.steps {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+}
+
+.step {
+  flex: 1;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.final-cta {
+  text-align: center;
+  padding: 60px 0;
+  background-color: #f5f5f5;
+}
+
+footer {
+  background-color: #333;
+  color: white;
+  padding: 40px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+footer .logo {
+  background-color: white;
+  color: #F4511E;
+}
+
+footer nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+}
+
+@media (max-width: 768px) {
+  .steps {
+      flex-direction: column;
+  }
+
+  .step {
+      margin-bottom: 20px;
+  }
+
+  footer {
+      flex-direction: column;
+      text-align: center;
+  }
+
+  footer nav {
+      margin: 20px 0;
+  }
+
+  footer nav a {
+      display: block;
+      margin: 10px 0;
+  }
+}

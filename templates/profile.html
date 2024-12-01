@@ -1,82 +1,35 @@
 {% extends "base.html" %}
 
+{% block title %}{{ profile.user.first_name }}'s Profile - YC Startup School{% endblock %}
+
+{% block container_class %}profile-container{% endblock %}
+
+{% block heading %}{{ profile.user.first_name }} {{ profile.user.last_name }}'s Profile{% endblock %}
+
 {% block content %}
-<div class="flex gap-8">
-    <div class="flex-1 max-w-3xl">
-        <!-- Back Button -->
-        <a href="{{ url_for('index') }}" class="inline-block mb-6 text-blue-500 hover:underline">
-            &larr; Back
-        </a>
-
-        <!-- Profile Header -->
-        <div class="flex items-start gap-6 mb-8">
-            <div class="h-32 w-32 rounded-full overflow-hidden bg-gray-300"></div>
-            <div class="flex-1">
-                <div class="flex items-center justify-between">
-                    <h1 class="text-3xl font-semibold">{{ profile.name }}</h1>
-                    <button class="text-gray-500 hover:text-gray-700">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                            <path d="M15 8a3 3 0 10-2.977-2.63l-4.94 2.47a3 3 0 100 4.319l4.94 2.47a3 3 0 10.895-1.789l-4.94-2.47a3.027 3.027 0 000-.74l4.94-2.47C13.456 7.68 14.19 8 15 8z" />
-                        </svg>
-                    </button>
-                </div>
-                <div class="flex items-center gap-6 mt-2 text-gray-600">
-                    <div class="flex items-center gap-1">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
-                        </svg>
-                        {{ profile.location }}
-                    </div>
-                    <div class="flex items-center gap-1">
-                        <span>{{ profile.age }}</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- About Section -->
-        <div class="bg-gray-50 rounded-lg">
-            <h2 class="px-6 py-4 text-lg font-semibold border-b">About Me</h2>
-            <div class="p-6 space-y-6">
-                <div>
-                    <h3 class="font-medium mb-2">Intro</h3>
-                    <p class="text-gray-700">{{ profile.intro }}</p>
-                </div>
-                <div>
-                    <h3 class="font-medium mb-2">Skills</h3>
-                    <p class="text-gray-700">{{ profile.skills }}</p>
-                </div>
-            </div>
-        </div>
+<div class="profile-content">
+    <div class="profile-info">
+        <p><strong>Location:</strong> {{ profile.location }}</p>
+        <p><strong>Skills:</strong> {{ profile.skills }}</p>
+        <p><strong>Bio:</strong> {{ profile.bio }}</p>
     </div>
 
-    <!-- Right Sidebar -->
-    <div class="w-80">
-        <div class="sticky top-8 space-y-6">
-            <!-- Connect Card -->
-            <div class="bg-white rounded-lg shadow-md p-6">
-                <div class="flex items-center justify-between mb-4">
-                    <h2 class="text-xl font-semibold">Invite to connect</h2>
-                    <button class="text-gray-500 hover:text-gray-700">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                        </svg>
-                    </button>
-                </div>
-                <form method="POST">
-                    {{ form.hidden_tag() }}
-                    {{ form.message(class="w-full p-2 border rounded mb-4", rows="4", placeholder="If you're excited about potentially working with this co-founder, type a short message here and click 'Invite.'") }}
-                    {{ form.submit(class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded") }}
-                </form>
-                <p class="text-center text-sm text-gray-600 mt-4">
-                    (You have 20 invites left for this week.)
-                </p>
-                <button class="w-full mt-4 bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded">
-                    Skip for now
-                </button>
-            </div>
+    <h2>Connect with {{ profile.user.first_name }}</h2>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        <div class="form-group">
+            {{ form.message(required=true, placeholder="Your message") }}
+            {{ form.message.label }}
         </div>
-    </div>
+
+        {{ form.submit(class="button") }}
+    </form>
 </div>
+{% endblock %}
+
+{% block footer %}
+<p class="back-link">
+    <a href="{{ url_for('index') }}">Back to all profiles</a>
+</p>
 {% endblock %}
 

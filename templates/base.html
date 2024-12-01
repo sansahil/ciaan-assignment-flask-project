@@ -3,42 +3,256 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Co-Founder Matching</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-</head>
-<body class="bg-gray-50">
-    <div class="flex">
-        <!-- Sidebar -->
-        <aside class="fixed left-0 top-0 h-full w-64 border-r bg-white p-4">
-            <div class="flex items-center gap-2 p-2 text-orange-600">
-                <div class="h-8 w-8 rounded bg-orange-600 text-white flex items-center justify-center">Y</div>
-                <span class="font-semibold">Co-Founder Matching</span>
-            </div>
-            <nav class="mt-8 space-y-2">
-                <a href="#" class="flex items-center gap-3 p-2 text-gray-600 hover:bg-gray-100 rounded-md">
-                    <div class="h-5 w-5 opacity-60">□</div>
-                    Dashboard
-                </a>
-                <a href="#" class="flex items-center gap-3 p-2 text-gray-600 hover:bg-gray-100 rounded-md">
-                    <div class="h-5 w-5 opacity-60">⚲</div>
-                    Discover Profiles
-                </a>
-                <a href="#" class="flex items-center gap-3 p-2 text-gray-600 hover:bg-gray-100 rounded-md">
-                    <div class="h-5 w-5 opacity-60">★</div>
-                    Revisit Profiles
-                </a>
-                <a href="#" class="flex items-center gap-3 p-2 text-gray-600 hover:bg-gray-100 rounded-md">
-                    <div class="h-5 w-5 opacity-60">✉</div>
-                    Inbox
-                </a>
-            </nav>
-        </aside>
+    <title>{% block title %}YC Startup School{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-        <!-- Main Content -->
-        <main class="ml-64 p-8 flex-1">
-            {% block content %}{% endblock %}
-        </main>
-    </div>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #ffffff;
+            color: #333;
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        h1, h2, h3 {
+            font-weight: 600;
+            color: #333;
+        }
+
+        p {
+            color: #777;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #000;
+            color: #fff;
+            padding: 20px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            animation: fadeInDown 1s ease-in-out;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 1rem;
+        }
+
+        header .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        header .logo .icon {
+            background-color: #F4511E;
+            width: 2rem;
+            height: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        header nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        header nav a {
+            color: #fff;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        header nav a:hover {
+            color: #F4511E;
+        }
+
+        header a {
+            padding: 8px 16px;
+            border: 2px solid #fff;
+            border-radius: 20px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        header a:hover {
+            background-color: #fff;
+            color: #000;
+        }
+
+        /* Main Content Styles */
+        main {
+            padding: 3rem 1rem;
+            animation: fadeInUp 1.5s ease-in-out;
+        }
+
+        .flash-message {
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            animation: slideIn 0.5s ease-in-out;
+        }
+
+        .flash-message.bg-success {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .flash-message.bg-error {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        .flash-message.bg-info {
+            background-color: #17a2b8;
+            color: white;
+        }
+
+        .flash-message.bg-warning {
+            background-color: #ffc107;
+            color: white;
+        }
+
+        .flash-message span {
+            flex-grow: 1;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            animation: fadeInUp 1.5s ease-in-out;
+        }
+
+        footer a {
+            color: #F4511E;
+            text-decoration: none;
+            margin-left: 10px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(-100%);
+            }
+            to {
+                transform: translateX(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header .container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            header nav {
+                flex-direction: column;
+                gap: 10px;
+                margin-top: 10px;
+            }
+
+            header a {
+                margin-top: 10px;
+                padding: 10px 20px;
+            }
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <header>
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="logo">
+                <div class="icon">Y</div>
+                <span>Combinator</span>
+            </div>
+            <nav class="hidden md:flex space-x-4">
+                <a href="{{ url_for('index') }}" class="hover:text-gray-300">Home</a>
+                <a href="#" class="hover:text-gray-300">About</a>
+                <a href="#" class="hover:text-gray-300">Privacy</a>
+                <a href="#" class="hover:text-gray-300">FAQ</a>
+                <a href="#" class="hover:text-gray-300">Help</a>
+            </nav>
+            {% if current_user.is_authenticated %}
+                <a href="{{ url_for('dashboard') }}" class="text-white border border-white hover:bg-white hover:text-black px-4 py-2 rounded">Dashboard</a>
+            {% else %}
+                <a href="{{ url_for('signup') }}" class="text-white border border-white hover:bg-white hover:text-black px-4 py-2 rounded">Sign up now</a>
+            {% endif %}
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="flash-message {{ category }} bg-{{ category }}-100 border border-{{ category }}-400 text-{{ category }}-700 px-4 py-3 rounded relative mb-4" role="alert">
+                        <span class="block sm:inline">{{ message }}</span>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="bg-gray-800 text-white py-4 mt-8">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2024 YC Startup School. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    {% block scripts %}{% endblock %}
 </body>
 </html>
-

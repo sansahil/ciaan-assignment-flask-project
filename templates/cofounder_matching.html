@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="bg-white p-8 rounded-lg shadow-md">
+    <h2 class="text-2xl font-bold mb-6">Co-founder Matching</h2>
+    <p class="mb-4">Here you can find potential co-founders based on your profile and preferences.</p>
+    <!-- Add co-founder matching functionality here -->
+    <div class="grid md:grid-cols-2 gap-4">
+        <!-- Sample co-founder card -->
+        <div class="border p-4 rounded-lg">
+            <h3 class="text-xl font-semibold mb-2">John Doe</h3>
+            <p><strong>Interests:</strong> AI, Machine Learning</p>
+            <p><strong>Skills:</strong> Python, TensorFlow</p>
+            <p><strong>Location:</strong> San Francisco, CA</p>
+            <button class="mt-2 bg-orange-px-4 rounded">Connect</button>
+        </div>
+        <!-- Add more co-founder cards here -->
+    </div>
+</div>
+{% endblock %}
+

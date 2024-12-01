@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Log in - YC Startup School</title>
+    <title>Sign In - YC Startup School</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-    <div class="login-container">
+    <div class="signin-container">
         <div class="logo">Y</div>
-        
-        <h1>Log in to access<br>Startup School & Co-Founder Matching</h1>
+
+        <h1>Welcome Back!</h1>
+        <h2>Sign in to your account</h2>
 
         {% with messages = get_flashed_messages(with_categories=true) %}
             {% if messages %}
@@ -24,22 +25,25 @@
 
         <form method="POST">
             <div class="form-group">
-                <input type="text" id="username" name="username" placeholder="Username or email" required>
+                <input type="text" id="username" name="username" required>
+                <label for="username">Username</label>
             </div>
 
             <div class="form-group">
-                <input type="password" id="password" name="password" placeholder="Password" required>
+                <input type="password" id="password" name="password" required>
+                <label for="password">Password</label>
             </div>
 
-            <div class="forgot-links">
-                Forgot your <a href="{{ url_for('forgot_username') }}">username</a> or <a href="{{ url_for('forgot_password') }}">password</a>?
-            </div>
-
-            <button type="submit">Log In</button>
+            <button type="submit">Sign In</button>
         </form>
 
-        <p class="create-account">
-            Don't have an account? <a href="{{ url_for('signup') }}">Create an account</a>.
+        <p class="signup-link">
+            Don't have an account? <a href="/signup">Sign up</a>.
+        </p>
+
+        <!-- Reset Password Link -->
+        <p class="reset-password-link">
+            <a href="/request-reset">Forgot your password? Reset it here</a>
         </p>
     </div>
 </body>
