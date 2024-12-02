@@ -31,8 +31,7 @@ def get_db_connection():
 @app.route('/')
 def home():
     return render_template('index.html')
-
-
+    
 # Signup route
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
